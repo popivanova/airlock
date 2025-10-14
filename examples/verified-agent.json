@@ -1,0 +1,9 @@
+{
+  "agent_id": "airlock://openai/gpt-4.5",
+  "fingerprint": "sha256:abc123verifiedfingerprint",
+  "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr...\n-----END PUBLIC KEY-----",
+  "environment_hash": "sha256:def456verifiedenv",
+  "last_verified": "2025-10-14T07:23:00Z",
+  "verification_modes": ["block", "stream"],
+  "stream_interval": "60s"
+}
