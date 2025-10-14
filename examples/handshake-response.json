@@ -1,0 +1,11 @@
+{
+  "agent_id": "airlock://openai/gpt-4.5",
+  "fingerprint": "sha256:abc123verifiedfingerprint",
+  "environment_hash": "sha256:def456verifiedenv",
+  "signed_nonce": "base64encodedsignature==",
+  "audit_token": {
+    "token_id": "audit-uuid-5678",
+    "issued_at": "2025-10-14T07:23:00Z",
+    "signature": "base64audit=="
+  }
+}
