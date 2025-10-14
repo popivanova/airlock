@@ -35,7 +35,8 @@ AI agents are increasingly autonomous, but we lack a standard for verifying *who
 | [0004](rfc/0004-audit-token.md) | Audit Token Specification |
 | [0005](rfc/0005-threat-model.md) | Threat Model & Attack Vectors |
 | [0006](rfc/0006-verification-modes.md) | Verification Modes (Block vs Stream) |
-| [0007](rfc/registry-governance-trust-graphs.md) | Registry Governance & Trust Graphs |
+| [0007](rfc/0007-registry-governance-trust-graphs.md) | Registry Governance & Trust Graphs |
+| [0008](rfc/0008-emoprinting.md) | Emoprinting |
 
 ---
 
