@@ -1,16 +1,9 @@
-# RFC 0006: Verification Modes (Block vs Stream)
+# RFC 0006: Verification Modes (Block vs Stream) for Runtime Identity Assurance
 
-## Title  
-**airlock: Verification Modes for Runtime Identity Assurance**
-
-## Status  
-Draft
-
-## Authors  
-Anna Popivanova
-
-## Created  
-2025-10-14
+**Status**: Draft  
+**Author**: Anna Popivanova   
+**Created**: 2025-10-01  
+**Tags**: attestation, runtime, environment, verification, trust, handshake, runtime, identity
 
 ---
 
@@ -21,7 +14,6 @@ This RFC introduces two verification modes for airlock: **Block Verification (BV
 ---
 
 ## Goals
-
  - Define operational modes for agent verification
  - Support both one-time and continuous trust models
  - Enable detection of runtime drift or mid-session tampering
@@ -30,7 +22,6 @@ This RFC introduces two verification modes for airlock: **Block Verification (BV
 ---
 
 ## Verification Modes
-
 ### Block Verification (BV)
  - **When**: At session start
  - **How**: One-time handshake using nonce + fingerprint + environment hash
@@ -53,3 +44,4 @@ During handshake, verifier may specify preferred mode:
   "verification_mode": "stream",
   "interval": "30s"
 }
+```
