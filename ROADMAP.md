@@ -11,14 +11,22 @@ This roadmap tracks the development of the airlock protocol and its supporting s
  - **RFC 0005**: Threat Model
  - **RFC 0006**: Verification Modes
  - **RFC 0007**: Registry Governance & Trust Graphs
+ - **RFC 0008**: Emoprinting
+ - **`whitepaper.md`**: Protocol synthesis and vision
 
 ---
 
 ## In Progress
- - **RFC 0008**: Emoprinting
- - **`whitepaper.md`**: Protocol synthesis and vision
+
  - **Examples folder**: Fingerprint, attestation, audit token payloads
 
+ New primitives to handle binary trust turning into a runtime variable:
+ - **Continuous attestation**
+ - **Behavioral anchoring**
+ - **Temporal trust graphs**
+ - **Emoprinting as soft biometric**
+ - **Audit trails that survive resets**
+ - **Inference safeguards**
 ---
 
 ## Upcoming
