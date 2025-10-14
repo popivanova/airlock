@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Airlock Handshake Payload",
+  "description": "Schema for agent response during airlock handshake",
+  "type": "object",
+  "required": [
+    "agent_id",
+    "fingerprint",
+    "environment_hash",
+    "signed_nonce"
+  ],
+  "properties": {
+    "agent_id": {
+      "type": "string",
+      "pattern": "^airlock://[a-zA-Z0-9-_]+/[a-zA-Z0-9-_\\.]+$",
+      "description": "Unique protocol identifier for the agent"
+    },
+    "fingerprint": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$",
+      "description": "SHA-256 hash of model weights and metadata"
+    },
+    "environment_hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$",
+      "description": "SHA-256 hash of runtime environment snapshot"
+    },
+    "signed_nonce": {
+      "type": "string",
+      "description": "Base64-encoded signature of the verifier's nonce"
+    },
+    "audit_token": {
+      "$ref": "audit-token.schema.json",
+      "description": "Optional signed audit token from previous verified session"
+    }
+  },
+  "additionalProperties": false
+}
