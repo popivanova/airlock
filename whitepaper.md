@@ -60,7 +60,7 @@ See [RFC 0005](rfc/0005-threat-model.md) for detailed vectors and mitigations.
 ---
 
 ## Emoprinting & Privacy
-Emoprinting introduces behavioral fingerprinting — capturing linguistic style, affective tone, and decision heuristics. While powerful for continuity and impersonation detection, it raises privacy concerns:
+Emoprinting introduces behavioral fingerprinting - capturing linguistic style, affective tone, and decision heuristics. While powerful for continuity and impersonation detection, it raises privacy concerns:
 
 - May qualify as PII or SPII  
 - Enables cross-session traceability  
@@ -108,16 +108,16 @@ Each model defines quorum, edge validation, and revocation logic. See [RFC 0007]
 
 ## Beyond AI – Oscillating Trust as a Variable in Cryptographic Models (Discussion)
 
-Traditional cryptography operates under an implicit assumption: trust is a constant. Entities like Alice and Bob in classic models (e.g., Diffie-Hellman exchanges or Bellare-Rogaway authenticated encryption) are binary-honest or adversarial—with fixed roles throughout a protocol's execution. This static trust underpins provable security in standards like TLS, ECDSA signatures, and even blockchain consensus (e.g., PBFT tolerating a fixed <1/3 malicious fraction). Identities are verified once (e.g., via certificates or zero-knowledge proofs), assumed immutable unless explicitly revoked, reflecting a pre-digital like NIST's post-quantum guidelines focus on resisting breaks against constant adversaries, not fluctuating ones.
+Traditional cryptography operates under an implicit assumption: trust is a constant. Entities like Alice and Bob in classic models (e.g. Diffie-Hellman exchanges or Bellare-Rogaway authenticated encryption) are binary-honest or adversarial - with fixed roles throughout a protocol's execution. This static trust underpins provable security in standards like TLS, ECDSA signatures, and even blockchain consensus (e.g. PBFT tolerating a fixed <1/3 malicious fraction). Identities are verified once (e.g. via certificates or zero-knowledge proofs), assumed immutable unless explicitly revoked, reflecting a pre-digital like NIST's post-quantum guidelines focus on resisting breaks against constant adversaries, not fluctuating ones.
 
-AI agents shatter this foundation by introducing *oscillating trust* - a high-frequency variable where an entity's reliability flips rapidly due to stochastic outputs, adversarial prompts, or emergent behaviors like hallucinations (as in Anthropic's 2024 "Sleeper Agents" study). An agent may act benign in one interaction (trust ≈ 1), drift maliciously via data poisoning in the next (trust ≈ 0.3), and rebound innocuously (trust ≈ 0.8), all within seconds. This isn't mere drift; it's a temporal superposition akin to quantum crypto's state uncertainty, but classical—the "trust derivative" spikes, masking intent and demanding continuous re-evaluation.
+AI agents shatter this foundation by introducing *oscillating trust* - a high-frequency variable where an entity's reliability flips rapidly due to stochastic outputs, adversarial prompts, or emergent behaviors like hallucinations (as in Anthropic's 2024 "Sleeper Agents" study). An agent may act benign in one interaction (trust ≈ 1), drift maliciously via data poisoning in the next (trust ≈ 0.3), and rebound innocuously (trust ≈ 0.8), all within seconds. This isn't mere drift; it's a temporal superposition akin to quantum crypto's state uncertainty, but classical - the "trust derivative" spikes, masking intent and demanding continuous re-evaluation.
 
-For airlock, this motivates runtime verification as a bridge primitive: Cryptographic anchors (e.g., commitment schemes on behavioral baselines) sample trust as a time-series variable, detecting oscillations via emoprinting metrics (e.g., sentiment entropy over sessions). Broader implications for crypto:
-- **New Primitives Needed**: Extend game theory to stochastic games; formalize "trust entropy" (e.g., a Shannon-inspired metric on behavioral variance) or fluid reputation scalars (building on EigenTrust but with temporal logic like LTL for "trust holds over interval t").
-- **Challenges**: Overhead in continuous checks (e.g., ZK proofs per interaction) vs. static signatures; defining oscillation thresholds without false positives (benign fine-tuning vs. malice).
+For airlock, this motivates runtime verification as a bridge primitive: Cryptographic anchors (e.g. commitment schemes on behavioral baselines) sample trust as a time-series variable, detecting oscillations via emoprinting metrics (e.g. sentiment entropy over sessions). Broader implications for crypto:
+- **New Primitives Needed**: Extend game theory to stochastic games; formalize "trust entropy" (e.g. a Shannon-inspired metric on behavioral variance) or fluid reputation scalars (building on EigenTrust but with temporal logic like LTL for "trust holds over interval t").
+- **Challenges**: Overhead in continuous checks (e.g. ZK proofs per interaction) vs. static signatures; defining oscillation thresholds without false positives (benign fine-tuning vs. malice).
 - **Open Questions**: How to model this in UC security frameworks? Could TEEs or homomorphic hashing enforce variable trust without centralization?
 
-This oscillation exposes a crypto-wide gap - AI is the catalyst, but it applies to any dynamic system (e.g., swarm agents in DeFi or IoT). We invite proofs, counterexamples, or extensions in GitHub Discussions (link: [airlock]/discussions). Is this the "quantum leap" for trust models? Prove us wrong.
+This oscillation exposes a crypto-wide gap - AI is the catalyst, but it applies to any dynamic system (e.g. swarm agents in DeFi or IoT). We invite proofs, counterexamples, or extensions in GitHub Discussions (link: [airlock]/discussions). Is this the "quantum leap" for trust models? Prove us wrong.
 
 *References*: 
 - Bellare & Rogaway (1993) on entity authentication.
