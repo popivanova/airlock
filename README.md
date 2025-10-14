@@ -22,7 +22,7 @@ AI agents are increasingly autonomous, but we lack a standard for verifying *who
 ## RFC Index
 | RFC | Title |
 |-----|-------|
-| [0001](rfc/0001-airlock-handshake.md) | airlock Handshake Protocol |
+| [0001](rfc/0001-airlock-handshake.md) | **airlock** Handshake Protocol |
 | [0002](rfc/0002-agent-fingerprint.md) | Agent Fingerprint Specification |
 | [0003](rfc/0003-environment-attestation.md) | Environment Attestation |
 | [0004](rfc/0004-audit-token.md) | Audit Token Specification |
@@ -38,7 +38,7 @@ AI agents are increasingly autonomous, but we lack a standard for verifying *who
 ---
 
 ## Privacy Disclaimer
-airlock is designed to verify the identity of AI agents - not humans. The protocol does not process, transmit, or store any Personally Identifiable Information (PII) or Sensitive PII (SPII).
+**airlock** is designed to verify the identity of AI agents - not humans. The protocol does not process, transmit, or store any Personally Identifiable Information (PII) or Sensitive PII (SPII).
 
 All identifiers (e.g., agent_id, fingerprint, environment_hash) are cryptographic or system-level artifacts that do not correspond to individuals. Audit tokens and handshake payloads are machine-verifiable and privacy-neutral by design.
 
