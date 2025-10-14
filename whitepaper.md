@@ -9,7 +9,7 @@
 ## Abstract
 **airlock** is a cryptographic protocol for verifying the identity of AI agents at runtime. It enables secure handshakes, attestation of execution environments, behavioral fingerprinting, and audit trails - all without relying on static credentials or centralized trust anchors. This whitepaper synthesizes RFCs 0001-0008 into a unified framework for decentralized identity, trust propagation, and agent accountability.
 
-**By addressing AI-induced oscillations that transform trust from a cryptographic constant into a dynamic variable, airlock paves the way for practical testing of fluid models, closing the gap between theoretical abstractions and real-world deployments.**
+**By addressing AI-induced oscillations that turn trust from a cryptographic constant into a dynamic variable, airlock enables practical testing of adaptive trust models - bridging the gap between abstract theory and real-world deployment. Crucially, it reframes identity from binary roles to quantum-like superpositions: agents in flux, trust in motion.**
 
 ---
 
@@ -129,6 +129,23 @@ This oscillation exposes a crypto-wide gap - AI is the catalyst, but it applies 
 ### Bridging the Theory-Practice Divide
 
 Cryptographic theory thrives on abstractions but falters in praxis, where static models (e.g. fixed adversary fractions in BFT) ignore runtime variability. AI oscillation offers a natural testbed: Empirical validation of trust-as-variable via real agent deployments (e.g. measuring emoprinting's detection rates on adversarial datasets like Anthropic's red-team logs). This enables iterative hardening-simulate oscillations with poisoned fine-tunes, prove bounds in stochastic games, then deploy and measure false positives in production swarms. Open call: Contribute datasets or benchmarks in Discussions to close the loop.
+
+---
+
+### A Spectrum of Trust: From Binary Constants to Quantum-Like Superpositions
+
+AI oscillations don't obliterate traditional models outright but expose a missing middle: An *in-between* operable regime blending binary trust (static, deterministic) with fluid variability, akin to quantum superposition in cryptography. In quantum key distribution (e.g. BB84 protocols), bits exist in overlaid states until measurement disturbs them—trust is probabilistic and interference-prone. AI agents mimic this classically: An entity's "state" superposes benign and adversarial potentials (e.g., via stochastic sampling or prompt ambiguity), unresolved until runtime interaction "measures" it, potentially collapsing to malice.
+
+**Contrasting Models in Operable Terms**:
+| Trust Model | Description | Operable Strengths | AI-Induced Weaknesses | airlock Mitigation |
+|-------------|-------------|---------------------|-----------------------|-------------------|
+| **Traditional Binary (Constant)** | Fixed roles (honest=1/adversary=0); verified once, assumed eternal (e.g. PKI in TLS). | Simple proofs, low overhead; works for slow human systems. | Inoperable under flips-revocation lags expose windows (e.g., session hijacks via mid-drift hallucinations). | N/A-too rigid for spectrum. |
+| **In-Between Superposition (Quasi-Quantum)** | Probabilistic overlays: Trust as a wavefunction ψ(trust) = α|honest⟩ + β|malicious⟩, with |α|^2 + |β|^2 = 1; collapses on measurement (interaction). Inspired by quantum crypto's uncertainty (e.g., no-cloning for states). | Handles ambiguity; measurable interference (e.g., detect collapses via entropy spikes). Empirically testable in AI (e.g., prompt entropy correlating to flip risk). | Overhead in continuous monitoring; false collapses if benign noise mimics malice (e.g., creative LLM outputs flagged). | Runtime sampling "measures" without full disturbance-emoprinting computes coefficients α/β via behavioral KL-divergence, preserving privacy. |
+| **Full Oscillation (Variable Chaos)** | High-frequency flips post-collapse; trust as a chaotic time-series (e.g., Markov jumps). | Captures real AI rapidity; robust to unknowns. | Inoperable predictability-proofs dissolve in entropy soup (e.g., no static Nash equilibria). | Anchors post-collapse continuity, rebuilding with audit trails. |
+
+This spectrum restores operability: Treat AI trust as quasi-quantum to extend classical primitives (e.g., superposition-proof ZK via continuous attestations). Challenges: Defining collapse thresholds (e.g., via quantum-inspired metrics like fidelity F(ψ1, ψ2)). Open for exploration: Simulate in code (QuTiP for quantum analogs on classical data)-fork and model an agent's wavefunction in Discussions.
+
+*References*: BB84 (Bennett & Brassard, 1984); Quantum superposition in crypto (e.g., IEEE Quantum 2025 reviews).
 
 ---
 
