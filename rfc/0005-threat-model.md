@@ -1,16 +1,9 @@
 # RFC 0005: Threat Model & Attack Vectors
 
-## Title  
-**airlock: Threat Model and Common Attack Vectors**
-
-## Status  
-Draft
-
-## Authors  
-Anna Popivanova
-
-## Created  
-2025-10-14
+**Status**: Draft  
+**Author**: Anna Popivanova   
+**Created**: 2025-10-01  
+**Tags**: attestation, runtime, environment, verification, trust, handshake, runtime, identity
 
 ---
 
