@@ -1,0 +1,5 @@
+{
+  "nonce": "random-challenge-uuid-1234",
+  "verification_mode": "stream",
+  "interval": "30s"
+}
