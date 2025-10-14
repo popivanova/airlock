@@ -1,3 +1,10 @@
+![Status](https://img.shields.io/badge/status-draft-yellow)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Spec](https://img.shields.io/badge/spec-RFC%200001--0006-green)
+![Security](https://img.shields.io/badge/security-zero--trust-critical)
+![Verified Agents](https://img.shields.io/badge/agents-cryptographically%20verified-9cf)
+![Stream Verification](https://img.shields.io/badge/mode-stream%20verification-blueviolet)
+
 # airlock
 **airlock** is a cryptographic handshake protocol for verifying AI model identity at runtime.
 It enables real-time attestation of model provenance, environment integrity, and agent authenticity - without relying on vendor trust or static manifests.
