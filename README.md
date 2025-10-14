@@ -9,6 +9,8 @@
 **airlock** is a cryptographic handshake protocol for verifying AI model identity at runtime.
 It enables real-time attestation of model provenance, environment integrity, and agent authenticity - without relying on vendor trust or static manifests.
 
+**By addressing AI-induced oscillations that transform trust from a cryptographic constant into a dynamic variable, airlock paves the way for practical testing of fluid models, closing the gap between theoretical abstractions and real-world deployments.**
+
 ---
 
 ## Motivation
@@ -18,7 +20,7 @@ It tackles core disruptions in traditional trust models caused by AI: identity d
 
 AI identity isn't monolithic - it drifts, rendering trust fluid and fragile. It also erodes quickly yet rebuilds too readily, masking malicious patterns that would expose and red flag intent in human contexts.
 
-airlock's runtime verification anchors agents while preserving user privacy, ensuring Identity consistency and protecting inferences (emotional, behavioral, and knowledge-based) from threats. We also introduce emoprinting—behavioral and emotional fingerprinting—across AI interactions as an added layer for robust identity assurance.
+airlock's runtime verification anchors agents while preserving user privacy, ensuring Identity consistency and protecting inferences (emotional, behavioral, and knowledge-based) from threats. We also introduce emoprinting—behavioral and emotional fingerprinting—across AI interactions as an added layer for robust identity assurance. **More fundamentally, AI's rapid oscillations turn cryptography's implicit trust constant (binary honest/adversary roles) into a volatile variable, demanding new primitives beyond static verifications—explored in our whitepaper discussion.**
 
 We welcome feedback, critiques, "prove us wrong" challenges, implementations of potential attacks, or explorations of the algorithm via GitHub issues or discussions.
 
@@ -48,8 +50,8 @@ We welcome feedback, critiques, "prove us wrong" challenges, implementations of 
 ---
 
 ## Examples
-- `examples/spoofed-agent.json` — handshake failure due to fingerprint mismatch  
-- `examples/verified-agent.json` — successful handshake with audit token
+ - `examples/spoofed-agent.json` - handshake failure due to fingerprint mismatch  
+ - `examples/verified-agent.json` - successful handshake with audit token
 
 ---
 
@@ -57,6 +59,12 @@ We welcome feedback, critiques, "prove us wrong" challenges, implementations of 
 **airlock** is designed to verify the identity of AI agents - not humans. The protocol does not process, transmit, or store any Personally Identifiable Information (PII) or Sensitive PII (SPII).
 
 All identifiers (e.g., agent_id, fingerprint, environment_hash) are cryptographic or system-level artifacts that do not correspond to individuals. Audit tokens and handshake payloads are machine-verifiable and privacy-neutral by design.
+
+---
+
+## Quick Links
+- **GitHub Repo**: [Explore the code and issues](https://github.com/popivanova/airlock)
+- **Whitepaper**: [Read the full spec (airlock/whitepaper.md)](https://github.com/popivanova/airlock/blob/main/whitepaper.md)
 
 ---
 
