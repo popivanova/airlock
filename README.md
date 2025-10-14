@@ -29,12 +29,13 @@ AI agents are increasingly autonomous, but we lack a standard for verifying *who
 ## RFC Index
 | RFC | Title |
 |-----|-------|
-| [0001](rfc/0001-airlock-handshake.md) | **airlock** Handshake Protocol |
+| [0001](rfc/0001-airlock-handshake.md) | **airlock** Protocol for Verifying AI Model Identity at Runtime |
 | [0002](rfc/0002-agent-fingerprint.md) | Agent Fingerprint Specification |
 | [0003](rfc/0003-environment-attestation.md) | Environment Attestation |
 | [0004](rfc/0004-audit-token.md) | Audit Token Specification |
 | [0005](rfc/0005-threat-model.md) | Threat Model & Attack Vectors |
 | [0006](rfc/0006-verification-modes.md) | Verification Modes (Block vs Stream) |
+| [0007](rfc/registry-governance-trust-graphs.md) | Registry Governance & Trust Graphs |
 
 ---
 
