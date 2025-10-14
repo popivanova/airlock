@@ -1,0 +1,9 @@
+{
+  "agent_id": "airlock://openai/gpt-4.5",
+  "fingerprint": "sha256:xyz789spoofedfingerprint",
+  "public_key": "-----BEGIN PUBLIC KEY-----\nFAKEKEY123...\n-----END PUBLIC KEY-----",
+  "environment_hash": "sha256:tamperedenvhash",
+  "last_verified": null,
+  "verification_modes": ["block"],
+  "stream_interval": null
+}
