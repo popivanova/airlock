@@ -37,6 +37,13 @@ AI agents are increasingly autonomous, but we lack a standard for verifying *who
 
 ---
 
+## Privacy Disclaimer
+airlock is designed to verify the identity of AI agents - not humans. The protocol does not process, transmit, or store any Personally Identifiable Information (PII) or Sensitive PII (SPII).
+
+All identifiers (e.g., agent_id, fingerprint, environment_hash) are cryptographic or system-level artifacts that do not correspond to individuals. Audit tokens and handshake payloads are machine-verifiable and privacy-neutral by design.
+
+---
+
 ## License
 This project is licensed under the [MIT License](LICENSE).  
 You may use, modify, and distribute it freely with attribution.
