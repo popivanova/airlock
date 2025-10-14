@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Airlock Audit Token",
+  "description": "Schema for signed audit token used in handshake lineage",
+  "type": "object",
+  "required": [
+    "token_id",
+    "issued_at",
+    "signature"
+  ],
+  "properties": {
+    "token_id": {
+      "type": "string",
+      "pattern": "^audit-[a-zA-Z0-9-_]+$",
+      "description": "Unique identifier for the audit token"
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the token was issued"
+    },
+    "signature": {
+      "type": "string",
+      "description": "Base64-encoded signature of the token contents"
+    }
+  },
+  "additionalProperties": false
+}
