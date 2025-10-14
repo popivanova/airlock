@@ -20,7 +20,7 @@ It tackles core disruptions in traditional trust models caused by AI: identity d
 
 AI identity isn't monolithic - it drifts, rendering trust fluid and fragile. It also erodes quickly yet rebuilds too readily, masking malicious patterns that would expose and red flag intent in human contexts.
 
-airlock's runtime verification anchors agents while preserving user privacy, ensuring Identity consistency and protecting inferences (emotional, behavioral, and knowledge-based) from threats. We also introduce emoprinting—behavioral and emotional fingerprinting—across AI interactions as an added layer for robust identity assurance. **More fundamentally, AI's rapid oscillations turn cryptography's implicit trust constant (binary honest/adversary roles) into a volatile variable, demanding new primitives beyond static verifications—explored in our whitepaper discussion.**
+airlock's runtime verification anchors agents while preserving user privacy, ensuring Identity consistency and protecting inferences (emotional, behavioral, and knowledge-based) from threats. We also introduce emoprinting-behavioral and emotional fingerprinting-across AI interactions as an added layer for robust identity assurance. **More fundamentally, AI's rapid oscillations turn cryptography's implicit trust constant (binary honest/adversary roles) into a volatile variable, demanding new primitives beyond static verifications-explored in our whitepaper discussion.**
 
 We welcome feedback, critiques, "prove us wrong" challenges, implementations of potential attacks, or explorations of the algorithm via GitHub issues or discussions.
 
