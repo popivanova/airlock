@@ -2,8 +2,8 @@
 
 **Status**: Draft  
 **Author**: Anna Popivanova   
-**Created**: 2025-10-14  
-**Tags**: attestation, runtime, environment, verification, trust
+**Created**: 2025-10-01  
+**Tags**: attestation, runtime, environment, verification, trust, identity
 
 ---
 
