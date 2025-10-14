@@ -15,7 +15,7 @@ Anna Popivanova
 ---
 
 ## Motivation
-Any protocol that claims to secure AI identity must clearly define what it secures *against*. Without a threat model, airlock would be a handshake in the dark — elegant, but untested. This RFC outlines the adversarial scenarios airlock is designed to detect, prevent, or mitigate, and clarifies its boundaries and assumptions.
+Any protocol that claims to secure AI identity must clearly define what it secures *against*. Without a threat model, *airlock* would be a handshake in the dark — elegant, but untested. This RFC outlines the adversarial scenarios *airlock* is designed to detect, prevent, or mitigate, and clarifies its boundaries and assumptions.
 
 ---
 
@@ -55,6 +55,13 @@ Any protocol that claims to secure AI identity must clearly define what it secur
  - Adversarial prompt injection
  - Hardware-level attacks (unless attested via enclave integration)
  - Social engineering of registry maintainers
+
+---
+
+## Privacy Considerations
+**airlock** is designed to verify the identity of AI agents — not humans. The protocol does not process, transmit, or store any Personally Identifiable Information (PII) or Sensitive PII (SPII).
+
+All identifiers (e.g., agent_id, fingerprint, environment_hash) are cryptographic or system-level artifacts that do not correspond to individuals. Audit tokens and handshake payloads are machine-verifiable and privacy-neutral by design.
 
 ---
 
