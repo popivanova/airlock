@@ -12,8 +12,15 @@ It enables real-time attestation of model provenance, environment integrity, and
 ---
 
 ## Motivation
-AI agents are increasingly autonomous, but we lack a standard for verifying *who* they are.  
-**airlock** introduces a lightweight, cryptographically grounded protocol to ensure that only trusted models are allowed to speak.
+AI agents are increasingly autonomous, but we lack a standard for verifying *who* they are. 
+**airlock** introduces a lightweight, cryptographic protocol that verifies AI agents' identities at runtime and at rest.
+It tackles core disruptions in traditional trust models caused by AI: identity drift, rapid impersonation, and fragile behavioral continuity, which trigger swift user trust collapse and overly hasty rebounds.
+
+AI identity isn't monolithic - it drifts, rendering trust fluid and fragile. It also erodes quickly yet rebuilds too readily, masking malicious patterns that would expose and red flag intent in human contexts.
+
+airlock's runtime verification anchors agents while preserving user privacy, ensuring Identity consistency and protecting inferences (emotional, behavioral, and knowledge-based) from threats. We also introduce emoprinting—behavioral and emotional fingerprinting—across AI interactions as an added layer for robust identity assurance.
+
+We welcome feedback, critiques, "prove us wrong" challenges, implementations of potential attacks, or explorations of the algorithm via GitHub issues or discussions.
 
 ---
 
