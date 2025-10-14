@@ -22,8 +22,6 @@ Today’s deployments rely heavily on static manifests, vendor trust, or opaque 
 
 By rooting its design in established cryptographic primitives - signatures, nonces, attestations - airlock avoids reinventing security and instead applies proven techniques to a new class of actors: autonomous AI.
 
----
-
 ## Goals
  - Cryptographically verify the identity of an AI model at runtime
  - Attest to the model’s environment and execution context
@@ -53,21 +51,16 @@ By rooting its design in established cryptographic primitives - signatures, nonc
  - **Nonce Challenge**: Random string signed by agent to prove liveness
  - **Audit Token**: Optional signed record of prior verified interactions
 
----
-
 ## Verification Modes
-
-airlock supports two verification models (see RFC 0006):
+**airlock** supports two verification models (see RFC 0006):
 
 - **Block Verification (BV)**: One-time handshake at session start
 - **Stream Verification (SV)**: Continuous or periodic verification during session
 
----
-
 ## Threat Model
 See [RFC 0005: Threat Model & Attack Vectors](0005-threat-model.md) for detailed analysis.
 
-airlock defends against:
+**airlock** defends against:
  - Model spoofing
  - Fork drift
  - Replay attacks
@@ -77,9 +70,13 @@ airlock defends against:
  - Man-in-the-middle interception
  - Runtime drift during session
 
+## Privacy Considerations
+**airlock** is designed to verify the identity of AI agents — not humans. The protocol does not process, transmit, or store any Personally Identifiable Information (PII) or Sensitive PII (SPII).
+
+All identifiers (e.g., agent_id, fingerprint, environment_hash) are cryptographic or system-level artifacts that do not correspond to individuals. Audit tokens and handshake payloads are machine-verifiable and privacy-neutral by design.
 
 ## Registry Format
-json
+```json
 {
   "agent_id": "airlock://openai/gpt-4.5",
   "fingerprint": "sha256:abc123...",
@@ -87,8 +84,9 @@ json
   "environment_hash": "sha256:def456...",
   "last_verified": "2025-10-14T07:23:00Z"
 }
+```
 
-Future Extensions
+## Future Extensions
  - Trust graphs for federated endorsements
  - Audit token chaining for multi-agent workflows
  - Integration with secure enclaves and hardware attestation
