@@ -11,7 +11,8 @@
 In a network of autonomous agents, verifying identity is critical. Traditional identifiers (e.g., UUIDs, public keys) are insufficient when agents are mutable, composable, or cloned. This RFC defines a fingerprinting mechanism that captures both static and behavioral traits of an agent — enabling cryptographic and contextual identity assurance.
 
 ---
-## 🔐 Goals
+
+## Goals
 
 - Generate reproducible fingerprints for agents  
 - Support both static (code, weights) and dynamic (behavioral) traits  
@@ -20,7 +21,7 @@ In a network of autonomous agents, verifying identity is critical. Traditional i
 
 ---
 
-## 🧬 Fingerprint Structure
+## Fingerprint Structure
 
 ```json
 {
@@ -59,8 +60,8 @@ In a network of autonomous agents, verifying identity is critical. Traditional i
  - **Signature must** be verifiable against registry public key
  - **Environment hash** must match attested runtime (see RFC 0003)
 
-## Emoprinting (Optional Extension)
-Agents may include a behavioral fingerprint derived from rhetorical stance, tone drift, and challenge-response patterns. See RFC 0008 (pending).
+## Emoprint
+Agents may include an emoprint, capturing affective telemetry from affective tone, sentiment patterns, and challenge-response patterns. See [RFC 0008](rfc/0008-emoprinting.md).
 
 ## Threat Vectors
  - **Hash collision spoofing** — mitigated via SHA-256 and signed payloads
