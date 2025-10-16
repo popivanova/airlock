@@ -7,12 +7,12 @@
 
 ---
 
-## Motivation
+## 1. Motivation
 Agent behavior is inseparable from the environment in which it runs. Identical models can behave differently depending on runtime conditions, hardware, or injected dependencies. This RFC defines a mechanism for attesting to the runtime environment of an agent — enabling downstream verifiers to assess trustworthiness, reproducibility, and tamper resistance.
 
 ---
 
-## Goals
+## 2. Goals
  - Capture a cryptographically verifiable snapshot of an agent’s runtime environment  
  - Enable third-party verification of environment integrity  
  - Support both enclave-based and non-enclave attestations  
@@ -20,7 +20,7 @@ Agent behavior is inseparable from the environment in which it runs. Identical m
 
 ---
 
-## Attestation Payload Structure
+## 3. Attestation Payload Structure
 ```json
 {
   "attestation_id": "airlock:attest:sha256:def456...",
@@ -55,20 +55,20 @@ Agent behavior is inseparable from the environment in which it runs. Identical m
   "signature": "ed25519:..."
 }
 ```
-## Verification Logic
+## 4. Verification Logic
  - **runtime_hash** must be reproducible from environment snapshot
  - **enclave_attestation** (if present) must be verifiable via provider’s public key
  - **signature** must match agent’s registered public key
  - **timestamp** must fall within acceptable freshness window
 
-## Enclave Support (Optional)
+## 5. Enclave Support (Optional)
 If the agent runs inside a secure enclave (e.g., Intel SGX, AMD SEV, AWS Nitro), the attestation may include a signed quote and measurement. This provides hardware-backed assurance of runtime integrity.
 
-## Threat Vectors
+## 6. Threat Vectors
  - **Environment spoofing** — mitigated via full snapshot hashing and optional enclave quotes
  - **Dependency injection** — mitigated via strict version pinning and hash verification
  - **Replay attacks** — mitigated via nonce and timestamp validation
  - **Signature forgery** — mitigated via registry-based key verification (see RFC 0007)
 
-## Examples
+## 7. Examples
 See /examples/attestation/agent-v1-runtime.json for a full payload.
