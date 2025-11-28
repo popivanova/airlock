@@ -1,4 +1,4 @@
-# RFC 0001: The airlock Protocol for Verifying AI Model Identity at Runtime
+# RFC 0001: The airlock Protocol for Verifying AI Agents Identity at Runtime
 
 **Status**: Draft  
 **Author**: Anna Popivanova   
@@ -7,34 +7,32 @@
 
 ---
 
-## Summary
-**airlock** defines a cryptographic handshake between a verifier and an AI agent to establish runtime identity, environment integrity, and model provenance. It ensures that only authenticated agents are allowed to interact, respond, or execute within trusted systems.
+## 1. Summary
+**airlock** provides a cryptographic handshake to verify an AI agent’s runtime identity, environment integrity, and agents' provenance. It ensures that only authenticated agents are allowed to interact, respond, or execute within trusted systems.
 
 ---
 
-## Motivation
-AI agents are becoming increasingly autonomous, capable of making decisions, generating content, and interacting with other systems without direct human oversight. Yet despite their growing influence, there is no widely adopted standard for verifying *who* an agent truly is at runtime.
-Today’s deployments rely heavily on static manifests, vendor trust, or opaque infrastructure - none of which provide cryptographic guarantees about the identity, integrity, or provenance of the model in use. This gap exposes systems to impersonation, unauthorized forks, and runtime drift, especially in high-stakes or distributed environments.
+## 2. Motivation
+AI agents increasingly make decisions, generate content, and interact with systems, while human oversight of their runtime identity, integrity, or provenance has shrunk compared to traditional HCI. No standard cryptographically verifies these properties at runtime, where AI agents can rapidly oscillate between trusted and untrusted states, rendering static trust insufficient.
 
-**airlock** addresses this by introducing a lightweight, cryptographically grounded handshake protocol. It enables verifiers to challenge and confirm the identity of an AI agent in real time, ensuring that only trusted models are allowed to speak, act, or execute within sensitive scopes.
-
-By rooting its design in established cryptographic primitives - signatures, nonces, attestations - airlock avoids reinventing security and instead applies proven techniques to a new class of actors: autonomous AI.
+Current deployments rely on static manifests or vendor trust, risking impersonation, forks, and runtime drift particularly in high-stakes environments. To address this, airlock verifies AI agents using cryptographic primitives (signatures, nonces, attestations). Its identifiers (e.g. agent_id, fingerprint, environment_hash) and audit tokens are machine-verifiable and PII-free, ensuring secure, trustworthy interactions.
 
 ---
 
-## Goals
- - Cryptographically verify the identity of an AI model at runtime
- - Attest to the model’s environment and execution context
- - Prevent spoofing, unauthorized forks, and stale deployments
- - Enable auditability and trust propagation across agent registries
+## 3. Goals
+ - Cryptographically verify the identity of AI agents at runtime, addressing rapid trust oscillation.
+ - Attest to the agent’s environment and execution context for integrity and provenance.
+ - Prevent spoofing, unauthorized forks, stale deployments, and reality-distorting content in high-stakes environments.
+ - Ensure auditability and trust propagation across agent registries.
+ - Maintain a privacy-neutral design, free of PII or SPII.
 
 ---
 
-## Handshake Flow
+## 4. Handshake Flow
  1. **Verifier initiates handshake** with a signed nonce challenge
 
  2. **Agent responds** with:
-  - Fingerprint of model weights and metadata
+  - Fingerprint of agent weights and metadata
   - Environment hash (runtime, dependencies, hardware)
   - Signed nonce using agent’s private key
   - Optional audit token (previous interactions)
@@ -49,7 +47,7 @@ By rooting its design in established cryptographic primitives - signatures, nonc
 
 ---
 
-## Components
+## 5. Components
  - **Agent Fingerprint**: SHA-256 hash of model weights + metadata
  - **Environment Hash**: Snapshot of runtime context (OS, libraries, hardware)
  - **Nonce Challenge**: Random string signed by agent to prove liveness
@@ -57,7 +55,7 @@ By rooting its design in established cryptographic primitives - signatures, nonc
 
 ---
 
-## Verification Modes
+## 6. Verification Modes
 **airlock** supports two verification models (see RFC 0006):
 
 - **Block Verification (BV)**: One-time handshake at session start
@@ -65,7 +63,7 @@ By rooting its design in established cryptographic primitives - signatures, nonc
 
 ---
 
-## Threat Model
+## 7. Threat Model
 See [RFC 0005: Threat Model & Attack Vectors](0005-threat-model.md) for detailed analysis.
 
 **airlock** defends against:
@@ -80,14 +78,14 @@ See [RFC 0005: Threat Model & Attack Vectors](0005-threat-model.md) for detailed
 
 ---
 
-## Privacy Considerations
+## 8. Privacy Considerations
 **airlock** is designed to verify the identity of AI agents — not humans. The protocol does not process, transmit, or store any Personally Identifiable Information (PII) or Sensitive PII (SPII).
 
-All identifiers (e.g., agent_id, fingerprint, environment_hash) are cryptographic or system-level artifacts that do not correspond to individuals. Audit tokens and handshake payloads are machine-verifiable and privacy-neutral by design.
+All identifiers (e.g. agent_id, fingerprint, environment_hash) are cryptographic or system-level artifacts that do not correspond to individuals. Audit tokens and handshake payloads are machine-verifiable and privacy-neutral by design.
 
 ---
 
-## Registry Format
+## 9. Registry Format
 ```json
 {
   "agent_id": "airlock://openai/gpt-4.5",
