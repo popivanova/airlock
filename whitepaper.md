@@ -6,19 +6,21 @@
 
 ---
 
-## Abstract
-**airlock** is a cryptographic protocol for verifying the identity of AI agents at runtime. It enables secure handshakes, attestation of execution environments, behavioral fingerprinting, and audit trails - all without relying on static credentials or centralized trust anchors. This whitepaper synthesizes RFCs 0001-0008 into a unified framework for decentralized identity, trust propagation, and agent accountability.
+## 1.Abstract
+**airlock** is a cryptographic protocol for verifying the identity of AI agents at runtime. It enables secure handshakes, attestation of execution environments, affective fingerprinting, and audit trails - all without relying on static credentials or centralized trust anchors. This whitepaper synthesizes RFCs 0001-0008 into a unified framework for decentralized identity, trust propagation, and agent accountability.
 
-**By addressing AI-induced oscillations that turn trust from a cryptographic constant into a dynamic variable, airlock enables practical testing of adaptive trust models - bridging the gap between abstract theory and real-world deployment. Crucially, it reframes identity from binary roles to quantum-like superpositions: agents in flux, trust in motion.**
-
----
-
-## Motivation
-AI agents increasingly operate across distributed systems, cloud runtimes, and edge devices. Traditional identity models - static keys, API tokens, or container hashes - fail to capture the dynamic, behavioral, and contextual nature of modern agents. airlock introduces a zero-trust handshake protocol that verifies agents in motion, not just at rest.
+**By addressing AI-induced oscillations that turn trust from a cryptographic constant into a dynamic variable, airlock enables practical testing of adaptive trust models - bridging the gap between abstract theory and real-world deployment. Crucially, it reframes identity from binary roles to quantum-like superpositions: agents in flux, trust in motion.** **airlock** treats identity as a living construct - shaped by behavior, context, and cryptographic lineage. It doesn’t just verify who an agent is. It verifies how they act, where they run, and what they leave behind.
 
 ---
 
-## Protocol Components
+## 2.Motivation
+AI agents increasingly operate across distributed systems, cloud runtimes, and edge devices. They also introduce variability by fragmenting data payloads into opaque micro-chunks, exponentially accelerating processing speeds beyond human validation capacity, and enabling cross-pollination of datasets/models with questionable data provenance. Traditional identity models - static keys, API tokens, or container hashes - fail to capture this dynamic, behavioral, and contextual nature of modern agents. airlock introduces a zero-trust handshake protocol that verifies agents in motion, not just at rest.
+
+---
+
+## 3. Architecture
+
+### 3.1. Protocol Components
 
 | RFC | Component | Purpose |
 |-----|-----------|---------|
@@ -33,7 +35,7 @@ AI agents increasingly operate across distributed systems, cloud runtimes, and e
 
 ---
 
-## Trust Flow
+### 3.2. Trust Flow
 
 1. **Agent initiates handshake** ([RFC 0001](rfc/0001-airlock-handshake.md))  
 2. **Fingerprint and attestation verified** ([RFC 0002](rfc/0002-agent-fingerprint.md) - [RFC 0003](rfc/0003-environment-attestation.md))  
@@ -45,7 +47,7 @@ Each step is cryptographically signed, timestamped, and optionally chained for l
 
 ---
 
-## Threat Model
+### 3.3. Threat Model
 
 **airlock** defends against:
 - Impersonation and spoofing  
@@ -58,8 +60,27 @@ Each step is cryptographically signed, timestamped, and optionally chained for l
 See [RFC 0005](rfc/0005-threat-model.md) for detailed vectors and mitigations.
 
 ---
+### 3.4. Verification Modes
+**airlock** supports:
+- **Strict**: All checks enforced  
+- **Adaptive**: Context-aware verification  
+- **Optional**: Minimal identity anchoring
 
-## Emoprinting & Privacy
+Modes are configurable per deployment. See [RFC 0006](rfc/0006-verification-modes.md).
+
+---
+
+### 3.5. Governance Models
+Trust graphs may be governed via:
+- Centralized registries  
+- Federated authorities  
+- Autonomous agent consensus
+
+Each model defines quorum, edge validation, and revocation logic. See [RFC 0007](rfc/0007-registry-governance-trust-graphs.md).
+
+---
+
+## 4. Emoprinting & Privacy
 Emoprinting introduces behavioral fingerprinting - capturing linguistic style, affective tone, and decision heuristics. While powerful for continuity and impersonation detection, it raises privacy concerns:
 
 - May qualify as PII or SPII  
@@ -70,27 +91,7 @@ Further investigation and ethical posturing are required. See [RFC 0008](rfc/000
 
 ---
 
-## Verification Modes
-**airlock** supports:
-- **Strict**: All checks enforced  
-- **Adaptive**: Context-aware verification  
-- **Optional**: Minimal identity anchoring
-
-Modes are configurable per deployment. See [RFC 0006](rfc/0006-verification-modes.md).
-
----
-
-## Governance Models
-Trust graphs may be governed via:
-- Centralized registries  
-- Federated authorities  
-- Autonomous agent consensus
-
-Each model defines quorum, edge validation, and revocation logic. See [RFC 0007](rfc/0007-registry-governance-trust-graphs.md).
-
----
-
-## Implementation Notes
+## 5. Implementation Notes
 - All payloads are JSON-based  
 - Signatures use Ed25519  
 - Hashes use SHA-256  
@@ -99,14 +100,7 @@ Each model defines quorum, edge validation, and revocation logic. See [RFC 0007]
 
 ---
 
-## Future Work
-- Threat simulation suite  
-- Emoprint drift scoring  
-- Trust graph visualization  
-- Contributor tooling and docs  
-- Formal privacy posture
-
-## Beyond AI – Oscillating Trust as a Variable in Cryptographic Models (Discussion)
+## 6. Beyond AI – Oscillating Trust as a Variable in Cryptographic Models (Discussion)
 
 Traditional cryptography operates under an implicit assumption: trust is a constant. Entities like Alice and Bob in classic models (e.g. Diffie-Hellman exchanges or Bellare-Rogaway authenticated encryption) are binary-honest or adversarial - with fixed roles throughout a protocol's execution. This static trust underpins provable security in standards like TLS, ECDSA signatures, and even blockchain consensus (e.g. PBFT tolerating a fixed <1/3 malicious fraction). Identities are verified once (e.g. via certificates or zero-knowledge proofs), assumed immutable unless explicitly revoked, reflecting a pre-digital like NIST's post-quantum guidelines focus on resisting breaks against constant adversaries, not fluctuating ones.
 
@@ -126,13 +120,13 @@ This oscillation exposes a crypto-wide gap - AI is the catalyst, but it applies 
 
 ---
 
-### Bridging the Theory-Practice Divide
+### 6.1. Bridging the Theory-Practice Divide
 
 Cryptographic theory thrives on abstractions but falters in praxis, where static models (e.g. fixed adversary fractions in BFT) ignore runtime variability. AI oscillation offers a natural testbed: Empirical validation of trust-as-variable via real agent deployments (e.g. measuring emoprinting's detection rates on adversarial datasets like Anthropic's red-team logs). This enables iterative hardening-simulate oscillations with poisoned fine-tunes, prove bounds in stochastic games, then deploy and measure false positives in production swarms. Open call: Contribute datasets or benchmarks in Discussions to close the loop.
 
 ---
 
-### A Spectrum of Trust: From Binary Constants to Quantum-Like Superpositions
+### 6.2. A Spectrum of Trust: From Binary Constants to Quantum-Like Superpositions
 
 AI oscillations don't obliterate traditional models outright but expose a missing middle: An *in-between* operable regime blending binary trust (static, deterministic) with fluid variability, akin to quantum superposition in cryptography. In quantum key distribution (e.g. BB84 protocols), bits exist in overlaid states until measurement disturbs them—trust is probabilistic and interference-prone. AI agents mimic this classically: An entity's "state" superposes benign and adversarial potentials (e.g., via stochastic sampling or prompt ambiguity), unresolved until runtime interaction "measures" it, potentially collapsing to malice.
 
@@ -149,5 +143,9 @@ This spectrum restores operability: Treat AI trust as quasi-quantum to extend cl
 
 ---
 
-## Philosophy
-**airlock** treats identity as a living construct - shaped by behavior, context, and cryptographic lineage. It doesn’t just verify who an agent is. It verifies how they act, where they run, and what they leave behind.
+## 7. Future Work
+- Threat simulation suite  
+- Emoprint drift scoring  
+- Trust graph visualization  
+- Contributor tooling and docs  
+- Formal privacy posture
